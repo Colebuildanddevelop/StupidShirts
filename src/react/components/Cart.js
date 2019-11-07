@@ -32,6 +32,12 @@ const useStyles = makeStyles(theme => ({
   cartBox: {
     marginBottom: 50,
   },
+  title: {
+    fontWeight: 'bold',
+    width: '100%',
+    marginTop: 20,
+    marginBottom: 20,
+  },  
   card: {
     flexGrow: 1,
     padding: theme.spacing(2),
@@ -108,6 +114,9 @@ const Cart = (props) => {
 
   return (
     <Container className={classes.root}>
+      <Typography variant="h3" align="center" className={classes.title}>
+        CART
+      </Typography>
       <Box className={classes.cartBox}>
         {props.items.map(cartItem => (
           <Card className={classes.card} >
@@ -176,7 +185,7 @@ const Cart = (props) => {
         ))}
       </Box>        
       <Grid xs={12} container direction="column" spacing={2} className={classes.subtotalBox}>
-        <Grid item container>
+        <Grid item container style={{maxWidth: 500, margin: 'auto'}}>
           <Grid item style={{flexGrow: 1}}>
             <Typography>
               SUBTOTAL: 
@@ -188,15 +197,15 @@ const Cart = (props) => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item>
-          <NavLink style={{height: "100%", textDecoration: 'none', color: 'unset'}} to="/checkout">  
+        <Grid item container style={{maxWidth: 500, margin: 'auto'}}>
+          <NavLink style={{textDecoration: 'none', color: 'unset', width:'100%'}} to="/checkout">  
             <Button variant="contained" className={classes.button}>
               CHECKOUT
             </Button>
           </NavLink>
         </Grid>
-        <Grid item>
-          <NavLink style={{height: "100%", textDecoration: 'none', color: 'unset'}} to="/">  
+        <Grid item container style={{maxWidth: 500, margin: 'auto'}}>
+          <NavLink style={{textDecoration: 'none', color: 'unset', width:'100%'}} to="/">  
             <Button variant="contained" style={{backgroundColor: 'white', color: 'black', width: '100%'}}>
               continue shopping
             </Button>

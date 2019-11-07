@@ -7,13 +7,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 export default function AddressForm(props) {
   
-  const validEmail = (email) => {
-    if (email.includes('@') && props.shippingField.email.length > 3 || props.shippingField.email === '') {
-      return true
-    } else {
-      return false
-    }
-  }
 
   return (
     <React.Fragment>
@@ -24,8 +17,8 @@ export default function AddressForm(props) {
         <Grid item xs={12}>
           <TextField
             required
-            error={!validEmail(props.shippingField.email)}
-            helperText={validEmail(props.shippingField.email) ? '' : 'please enter a valid email'}
+            
+            
             value={props.shippingField.email}
             onChange={props.handleChange}                              
             id="email"

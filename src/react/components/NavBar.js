@@ -24,6 +24,8 @@ function HideOnScroll(props) {
 const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
+    fontWeight: 'bold',
+    padding: 12,
   },
   icon: {
     color: 'black',
@@ -37,14 +39,9 @@ const NavBar = () => {
       <HideOnScroll>
         <AppBar color="white" display="flex" elevation={0}>
           <Toolbar >
-            <IconButton aria-label="menu" className={classes.icon}>
-              <NavLink style={{ textDecoration: 'none', color: 'unset' }} to="/">
-                <MenuIcon />
-              </NavLink>  
-            </IconButton>
-            <Typography variant="h6" align="center" className={classes.title}>
+            <Typography variant="h6" align="left" className={classes.title}>
               <NavLink style={{ textDecoration: 'none', color: 'unset' }} to="/" color="inherit">
-                Stupid Shirts
+                STUPID SHIRTS
               </NavLink>
             </Typography>
             <IconButton aria-label="cart" className={classes.icon}>

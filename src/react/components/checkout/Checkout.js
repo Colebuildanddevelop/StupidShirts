@@ -21,7 +21,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { green } from '@material-ui/core/colors';
 import { grey } from '@material-ui/core/colors';
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -46,6 +45,12 @@ const useStyles = makeStyles(theme => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
   },
+  icon: {
+    color: 'black !important',
+  },
+  iconComplete: {
+    color: 'green !important',
+  },  
   buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -53,6 +58,8 @@ const useStyles = makeStyles(theme => ({
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
+    backgroundColor: 'black',
+    color: 'white',
   },
   buttonSuccess: {
     backgroundColor: green[500],
@@ -219,8 +226,6 @@ const Checkout = (props) => {
     
   };
   
-
-
   const handleChange = (event) => {
     let updatedObj = {}
     let keyArr = Object.keys(props.shippingField)  
@@ -241,13 +246,18 @@ const Checkout = (props) => {
   return (
     <React.Fragment>  
     <Paper className={classes.paper}>
-      <Typography component="h1" variant="h4" align="center">
-        Checkout
+      <Typography component="h1" variant="h4" align="center" style={{fontWeight: 'bold'}}>
+        CHECKOUT
       </Typography>
-      <Stepper activeStep={activeStep} className={classes.stepper}>
+      <Stepper activeStep={activeStep} className={classes.stepper} >
         {steps.map(label => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+          <Step key={label} >
+            <StepLabel StepIconProps={{
+              classes: {
+                active: classes.icon,
+                completed: classes.iconComplete
+              }
+            }}>{label}</StepLabel>            
           </Step>
         ))}
       </Stepper>
@@ -296,7 +306,7 @@ const Checkout = (props) => {
               )}
               <Button
                 variant="contained"
-                color="primary"
+                
                 onClick={handleClick}
                 className={classes.button}
                 disabled={loading}

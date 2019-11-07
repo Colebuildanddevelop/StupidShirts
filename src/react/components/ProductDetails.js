@@ -6,8 +6,6 @@ import { addToCart } from '../../redux/actions';
 // MATERIAL-UI
 import Grid from '@material-ui/core/Grid';
 import ButtonBase from '@material-ui/core/ButtonBase';
-
-
 import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -18,7 +16,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-
 import Card from '@material-ui/core/Card';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -43,6 +40,8 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: 375,
+    margin: 'auto'
   },
   cardMedia: {
     height: 500,
@@ -76,24 +75,9 @@ const useStyles = makeStyles(theme => ({
 const Display = (props) => {
   const classes = useStyles();
   const [photoNum, setPhoto] = useState(0);
-
-  const handlePhotoClick = () => {
-    switch(photoNum) {
-      case 0: {
-        setPhoto(1)
-        break;
-      }
-      case 1: {
-        setPhoto(2)
-        break;
-      }
-      case 2: {
-        setPhoto(0)
-        break;
-      }            
-    }
+  const handlePhotoClick = (num) => {
+    setPhoto(num);
   }
-
   return (
     <React.Fragment>
       <Container className={classes.cardGrid}>     
@@ -118,12 +102,11 @@ const Display = (props) => {
               image={props.product.metadata.imageThree}
               title={props.product.name}
             />           
-          }                    
-          
+          }                              
           <div style={{margin: 'auto', width: '100%', marginBottom: 20}}>
             <Grid container item xs={12} stlye={{padding: 0, width: '100%', margin: 5}}>            
               <Grid item xs={4} className={classes.gridItem}>
-                <ButtonBase onClick={handlePhotoClick} style={{display: 'block', height: '100%', width: '100%'}} >
+                <ButtonBase onClick={() => handlePhotoClick(0)} style={{display: 'block', height: '100%', width: '100%'}} >
                   <CardMedia
                     className={classes.thumbnail}
                     image={props.product.metadata.imageOne}
@@ -132,7 +115,7 @@ const Display = (props) => {
                 </ButtonBase>
               </Grid>
               <Grid item xs={4} className={classes.gridItem}>
-                <ButtonBase onClick={handlePhotoClick} style={{display: 'block', height: '100%', width: '100%'}} >
+                <ButtonBase onClick={() => handlePhotoClick(1)} style={{display: 'block', height: '100%', width: '100%'}} >
                   <CardMedia
                     className={classes.thumbnail}
                     image={props.product.metadata.imageTwo}
@@ -141,7 +124,7 @@ const Display = (props) => {
                 </ButtonBase>
               </Grid>
               <Grid item xs={4} className={classes.gridItem}>
-                <ButtonBase onClick={handlePhotoClick} style={{display: 'block', height: '100%', width: '100%'}} >
+                <ButtonBase onClick={() => handlePhotoClick(2)} style={{display: 'block', height: '100%', width: '100%'}} >
                   <CardMedia
                     className={classes.thumbnail}
                     image={props.product.metadata.imageThree}
@@ -150,8 +133,7 @@ const Display = (props) => {
                 </ButtonBase>
               </Grid>  
             </Grid>              
-          </div>
-    
+          </div>    
           <Typography variant="h6" align="center">
             {props.product.name}         
           </Typography>
@@ -197,7 +179,6 @@ const Display = (props) => {
             </Button>     
           </NavLink>
         </Card> 
-
       </Container>
     </React.Fragment>
   );
@@ -215,14 +196,12 @@ class ProductDetails extends Component {
   componentDidMount() {
     console.log(this.props);
   }
-
   handleChange(e) {
     this.setState({
       selectedAttribute: e.target.value
     });
     console.log(this.state)
   }
-
   handleClick() {
     // funky
     let sku = this.props.skus.find(sku => {
@@ -244,7 +223,7 @@ class ProductDetails extends Component {
         this.props.addToCart(skuObject);
         console.log("added to cart");          
       } else {
-        console.log("cant add same sku");
+        alert("This item is already in your cart.");
       }
     } else {
       this.props.addToCart(skuObject);
