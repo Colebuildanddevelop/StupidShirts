@@ -8,7 +8,7 @@
 
 > An ecommerce web application
 
-> Using Google Cloud Functions with the Stripe Api to accomplish a custom checkout experience
+> Using Google Cloud Functions in tangent with Stripe Api to accomplish a custom checkout experience
 
 ![npm](https://img.shields.io/npm/v/npm)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/react)
@@ -22,7 +22,7 @@
 
 ***INSERT ANOTHER GRAPHIC HERE***
 
-[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
+[![INSERT YOUR GRAPHIC HERE](/static/StupidShirtsAddingItems.gif)]()
 
 - Most people will glance at your `README`, *maybe* star it, and leave
 - Ergo, people should understand instantly what your project is about based on your repo
