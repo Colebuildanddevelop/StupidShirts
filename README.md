@@ -18,4 +18,10 @@
 
 ## Features
 
+**Responsive Design**
+
+[![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)]()
+
+**Realtime Updates**
+
 [![INSERT YOUR GRAPHIC HERE](/static/responsive.gif)]()
