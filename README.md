@@ -12,7 +12,7 @@
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/@material-ui/core)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/redux-persist)
 
-[![INSERT YOUR GRAPHIC HERE](/static/addingItems.gif)]()
+![INSERT YOUR GRAPHIC HERE](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/addingItems.gif)
 
 ---
 
@@ -20,8 +20,8 @@
 
 **Responsive Design**
 
-[![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)]()
+![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)
 
 **Realtime Updates**
 
-[![INSERT YOUR GRAPHIC HERE](/static/responsive.gif)]()
+![INSERT YOUR GRAPHIC HERE](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)
