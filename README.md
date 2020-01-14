@@ -12,11 +12,13 @@
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/@material-ui/core)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/redux-persist)
 
-![INSERT YOUR GRAPHIC HERE](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/addingItems.gif)
-
 ---
 
 ## Features
+
+**Main Flow**
+
+![Main](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/addingItems.gif)
 
 **Custom Checkout Flow**
 
