@@ -10,20 +10,7 @@
 
 > Built with React, Redux, Firebase, and Stripe
 
-**Badges will go here**
-
-- build status
-- issues (waffle.io maybe)
-- devDependencies
-- npm package
-- coverage
-- slack
-- downloads
-- gitter chat
-- license
-- etc.
-
-[![Build Status](http://img.shields.io/travis/colebuildanddevelop/StupidShirts.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/@material-ui/core)
 
 
 ***INSERT ANOTHER GRAPHIC HERE***
