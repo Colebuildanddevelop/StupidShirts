@@ -6,6 +6,7 @@ import { addToCart } from '../../redux/actions';
 // MATERIAL-UI
 import Grid from '@material-ui/core/Grid';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Zoom from '@material-ui/core/Zoom';
 import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -29,22 +30,13 @@ const useStyles = makeStyles(theme => ({
     marginTop: 15,
     marginBottom: 30,
     background: 'white',
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    height: '100%',
-    paddingLeft: 0,
-    paddingRight: 0,
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    maxWidth: 375,
-    margin: 'auto'
+
   },
   cardMedia: {
-    height: 500,
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 800
+    },
+    minHeight: 500,
     width: '100%',
     backgroundSize: "cover",
     marginBottom: 5,
@@ -53,6 +45,22 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 20,
     paddingBottom: 30,
     paddingLeft: 10,
+  },
+  addToCart: {
+    margin: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      marginBottom: '100%'
+    },
+  },
+  photoDisplay: {
+    [theme.breakpoints.up('sm')]: {
+      padding: 40
+    }   
+  },
+  descriptionGrid: {
+    [theme.breakpoints.up('sm')]: {
+      padding: 40,
+    }  
   },
   gridItem: {
     height: 70,
@@ -78,108 +86,115 @@ const Display = (props) => {
   const handlePhotoClick = (num) => {
     setPhoto(num);
   }
+
   return (
-    <React.Fragment>
-      <Container className={classes.cardGrid}>     
-        <Card className={classes.card} elevation={0}>
-          {photoNum === 0 &&
-            <CardMedia
-              className={classes.cardMedia}
-              image={props.product.metadata.imageOne}
-              title={props.product.name}
-            />             
-          }
-          {photoNum === 1 &&
-            <CardMedia
-              className={classes.cardMedia}
-              image={props.product.metadata.imageTwo}
-              title={props.product.name}
-            />           
-          }
-          {photoNum === 2 &&
-            <CardMedia
-              className={classes.cardMedia}
-              image={props.product.metadata.imageThree}
-              title={props.product.name}
-            />           
-          }                              
-          <div style={{margin: 'auto', width: '100%', marginBottom: 20}}>
-            <Grid container item xs={12} stlye={{padding: 0, width: '100%', margin: 5}}>            
-              <Grid item xs={4} className={classes.gridItem}>
-                <ButtonBase onClick={() => handlePhotoClick(0)} style={{display: 'block', height: '100%', width: '100%'}} >
-                  <CardMedia
-                    className={classes.thumbnail}
-                    image={props.product.metadata.imageOne}
-                    title={props.product.name}
-                  />
-                </ButtonBase>
-              </Grid>
-              <Grid item xs={4} className={classes.gridItem}>
-                <ButtonBase onClick={() => handlePhotoClick(1)} style={{display: 'block', height: '100%', width: '100%'}} >
-                  <CardMedia
-                    className={classes.thumbnail}
-                    image={props.product.metadata.imageTwo}
-                    title={props.product.name}
-                  />
-                </ButtonBase>
-              </Grid>
-              <Grid item xs={4} className={classes.gridItem}>
-                <ButtonBase onClick={() => handlePhotoClick(2)} style={{display: 'block', height: '100%', width: '100%'}} >
-                  <CardMedia
-                    className={classes.thumbnail}
-                    image={props.product.metadata.imageThree}
-                    title={props.product.name}
-                  />
-                </ButtonBase>
-              </Grid>  
-            </Grid>              
-          </div>    
-          <Typography variant="h6" align="center">
-            {props.product.name}         
-          </Typography>
-          <Typography variant="h9" align="center">
-            {props.product.metadata.price}
-          </Typography>  
-          <Typography variant="p" align="left" className={classes.cardDescription}>
-            {props.product.metadata.description}
-          </Typography>       
-          <FormControl component="fieldset" required style={{margin: 'auto'}}>
-            <FormLabel component="legend" align="center">select size</FormLabel>
-            <RadioGroup row value={props.selectedAttribute} onChange={props.handleChange}>
-              <FormControlLabel
-                control={<Radio />}
-                label="XS"
-                value="XS"                
-              />    
-              <FormControlLabel
-                control={<Radio />}
-                label="S"
-                value="S"                
-              />                        
-              <FormControlLabel
-                control={<Radio />}
-                label="M"
-                value="M"                
-              />
-              <FormControlLabel
-                control={<Radio />}
-                label="L"
-                value="L"
-              />
-              <FormControlLabel
-                control={<Radio />}
-                label="XL"
-                value="XL"
-              />                            
-            </RadioGroup>
-          </FormControl>
-          <NavLink style={{width: "100%", textDecoration: 'none', color: 'unset'}} to="/cart">  
-            <Button variant="outlined" size="large"  className={classes.button} onClick={props.handleClick}>
-              Add To Cart
-            </Button>     
-          </NavLink>
-        </Card> 
-      </Container>
+    <React.Fragment style={{height: '100%'}}>
+      <Zoom in={true} timeout={250}>
+        <Grid container>
+          <Grid item xs={12} sm={6} className={classes.photoDisplay}>
+            {photoNum === 0 &&
+              <CardMedia
+                className={classes.cardMedia}
+                image={props.product.metadata.imageOne}
+                title={props.product.name}
+              />             
+            }
+            {photoNum === 1 &&
+              <CardMedia
+                className={classes.cardMedia}
+                image={props.product.metadata.imageTwo}
+                title={props.product.name}
+              />           
+            }
+            {photoNum === 2 &&
+              <CardMedia
+                className={classes.cardMedia}
+                image={props.product.metadata.imageThree}
+                title={props.product.name}
+              />           
+            }               
+            <div style={{margin: 'auto', width: '100%', marginBottom: 20}}>
+              <Grid container item xs={12} stlye={{padding: 0, width: '100%', margin: 5}}>            
+                <Grid item xs={4} className={classes.gridItem}>
+                  <ButtonBase onClick={() => handlePhotoClick(0)} style={{display: 'block', height: '100%', width: '100%'}} >
+                    <CardMedia
+                      className={classes.thumbnail}
+                      image={props.product.metadata.imageOne}
+                      title={props.product.name}
+                    />
+                  </ButtonBase>
+                </Grid>
+                <Grid item xs={4} className={classes.gridItem}>
+                  <ButtonBase onClick={() => handlePhotoClick(1)} style={{display: 'block', height: '100%', width: '100%'}} >
+                    <CardMedia
+                      className={classes.thumbnail}
+                      image={props.product.metadata.imageTwo}
+                      title={props.product.name}
+                    />
+                  </ButtonBase>
+                </Grid>
+                <Grid item xs={4} className={classes.gridItem}>
+                  <ButtonBase onClick={() => handlePhotoClick(2)} style={{display: 'block', height: '100%', width: '100%'}} >
+                    <CardMedia
+                      className={classes.thumbnail}
+                      image={props.product.metadata.imageThree}
+                      title={props.product.name}
+                    />
+                  </ButtonBase>
+                </Grid>  
+              </Grid>              
+            </div>               
+          </Grid>                           
+          <Grid item container sm={6} className={classes.descriptionGrid}>   
+            <Typography variant="h6" align="center" style={{width: '100%'}}>
+              {props.product.name}         
+            </Typography>
+            <Typography variant="h9" align="center">
+              {props.product.metadata.price}
+            </Typography>  
+            <Typography variant="p" align="left" className={classes.cardDescription}>
+              {props.product.metadata.description}
+            </Typography>       
+            <FormControl component="fieldset" required style={{margin: 'auto'}}>
+              <FormLabel component="legend" align="center">select size</FormLabel>
+              <RadioGroup row value={props.selectedAttribute} onChange={props.handleChange}>
+                <FormControlLabel
+                  control={<Radio />}
+                  label="XS"
+                  value="XS"                
+                />    
+                <FormControlLabel
+                  control={<Radio />}
+                  label="S"
+                  value="S"                
+                />                        
+                <FormControlLabel
+                  control={<Radio />}
+                  label="M"
+                  value="M"                
+                />
+                <FormControlLabel
+                  control={<Radio />}
+                  label="L"
+                  value="L"
+                />
+                <FormControlLabel
+                  control={<Radio />}
+                  label="XL"
+                  value="XL"
+                />                            
+              </RadioGroup>
+            </FormControl>
+            <NavLink style={{width: "100%", textDecoration: 'none', color: 'unset'}} className={classes.addToCart} to="/cart">  
+              <Button variant="outlined" size="large"  className={classes.button} onClick={props.handleClick}>
+                Add To Cart
+              </Button>     
+            </NavLink>               
+          </Grid>        
+        </Grid>
+      </Zoom>
+
+
     </React.Fragment>
   );
 }

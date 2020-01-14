@@ -9,7 +9,6 @@ import Container from '@material-ui/core/Container';
 
 const App = () => {
   return (
-    <Container>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
@@ -17,7 +16,6 @@ const App = () => {
           </Router>
         </PersistGate>
       </Provider>  
-    </Container>
   );
 }
 

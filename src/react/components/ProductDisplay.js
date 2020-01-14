@@ -1,13 +1,13 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 // MATERIAL-UI
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-
+import Zoom from '@material-ui/core/Zoom';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -15,12 +15,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     marginTop: 20,
     marginBottom: 10,
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-    paddingLeft: 0,
-    paddingRight: 0,
   },
   gridContainer: {
     height: 500,
@@ -47,22 +41,25 @@ const ProductDisplay = (props) => {
 
   return (
     <React.Fragment>
-      <Grid container spacing={4} className={classes.cardGrid}>
+      <Grid container spacing={4}>
         <Typography variant="h3" align="center" className={classes.title}>
           CATALOG
         </Typography>
         {props.products.map((product, index) => (
-          <Grid item key={product.id} xs={12} className={classes.gridContainer}>
-            <Card className={classes.card}>
-              <NavLink style={{height: "100%"}} to={`/shirt_${index}`}>  
-                <CardMedia
-                  className={classes.cardMedia}
-                  image={product.metadata.imageOne}
-                  title={product.name}
-                />
-              </NavLink> 
-            </Card>
-          </Grid>  
+          <Zoom in={true} timeout={500}>
+
+            <Grid item key={product.id} xs={12} className={classes.gridContainer}>
+              <Card className={classes.card}>
+                <NavLink style={{height: "100%"}} to={`/shirt_${index}`}>  
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={product.metadata.imageOne}
+                    title={product.name}
+                  />
+                </NavLink> 
+              </Card>
+            </Grid>  
+          </Zoom>
         ))}
       </Grid>
     </React.Fragment>

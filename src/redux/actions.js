@@ -13,8 +13,6 @@ export const updateShipping = (shippingInfo) => ({
   payload: shippingInfo
 });
 
-
-
 export const loadProducts = () => {
   return (dispatch) => {
     return fetch('/api/products')

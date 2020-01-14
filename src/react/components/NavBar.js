@@ -37,7 +37,7 @@ const NavBar = () => {
   return (
     <React.Fragment>
       <HideOnScroll>
-        <AppBar color="white" display="flex" elevation={0}>
+        <AppBar color="white" display="flex" elevation={1}>
           <Toolbar >
             <Typography variant="h6" align="left" className={classes.title}>
               <NavLink style={{ textDecoration: 'none', color: 'unset' }} to="/" color="inherit">

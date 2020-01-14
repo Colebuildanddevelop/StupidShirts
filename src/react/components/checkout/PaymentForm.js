@@ -40,7 +40,7 @@ export default function PaymentForm(props) {
         Payment method
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Typography variant="h9">
             Card Number *
           </Typography>
@@ -51,7 +51,7 @@ export default function PaymentForm(props) {
             />
           </Typography>
         </Grid>  
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Typography variant="h9">
             Expiration date *
           </Typography>
@@ -62,7 +62,7 @@ export default function PaymentForm(props) {
             />
           </Typography>       
         </Grid> 
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Typography variant="h9">
             CVC *
           </Typography>
