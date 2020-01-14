@@ -18,11 +18,12 @@
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/@material-ui/core)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/redux-persist)
 
+[![INSERT YOUR GRAPHIC HERE](/static/StupidShirtsAddingItems.gif)]()
 
 
 ***INSERT ANOTHER GRAPHIC HERE***
 
-[![INSERT YOUR GRAPHIC HERE](/static/StupidShirtsAddingItems.gif)]()
+[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
 
 - Most people will glance at your `README`, *maybe* star it, and leave
 - Ergo, people should understand instantly what your project is about based on your repo
