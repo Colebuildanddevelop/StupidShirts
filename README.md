@@ -12,11 +12,10 @@
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/@material-ui/core)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/colebuildanddevelop/stupidshirts/redux-persist)
 
-![Main Flow][(/static/addingItems.gif)]
+[![INSERT YOUR GRAPHIC HERE](/static/addingItems.gif)]()
 
 ---
 
 ## Features
 
-![Responsive Design][(/static/responsive.gif)]
-
+[![INSERT YOUR GRAPHIC HERE](/static/responsive.gif)]()
