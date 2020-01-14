@@ -18,10 +18,16 @@
 
 ## Features
 
+**Custom Checkout Flow**
+
+![CHECKOUT GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/checkout.gif)
+
 **Responsive Design**
 
 ![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)
 
 **Realtime Updates**
 
-![INSERT YOUR GRAPHIC HERE](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)
+![REALTIME UPDATES GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/realtimeUpdates.gif)
+
+
