@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { addToCart } from '../../redux/actions';
 // MATERIAL-UI
@@ -8,29 +7,20 @@ import Grid from '@material-ui/core/Grid';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Zoom from '@material-ui/core/Zoom';
 import CardMedia from '@material-ui/core/CardMedia';
-import Container from '@material-ui/core/Container';
-import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Card from '@material-ui/core/Card';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Button from '@material-ui/core/Button';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
-import Fab from '@material-ui/core/Fab';
 
 const useStyles = makeStyles(theme => ({
   button: {
     marginTop: 15,
     marginBottom: 30,
     background: 'white',
-
   },
   cardMedia: {
     [theme.breakpoints.up('sm')]: {
@@ -77,11 +67,17 @@ const useStyles = makeStyles(theme => ({
     width: 'auto',
     border: 'solid black 1px',
   },
-
 }));
-// price needs to take data from say price that will add to cart...
+
+/**
+  * @desc displays the selected product
+  * @param Object props - the product that was selected
+  * @return the selected Product information
+*/
 const Display = (props) => {
   const classes = useStyles();
+
+  // Track the photo selected
   const [photoNum, setPhoto] = useState(0);
   const handlePhotoClick = (num) => {
     setPhoto(num);
@@ -193,12 +189,15 @@ const Display = (props) => {
           </Grid>        
         </Grid>
       </Zoom>
-
-
     </React.Fragment>
   );
 }
 
+/**
+  * @desc passes functions, and data to the Display Component
+  * @param Object props - the product that was selected
+  * @return a Display Component
+*/
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
@@ -208,17 +207,17 @@ class ProductDetails extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  componentDidMount() {
-    console.log(this.props);
-  }
+
+  // track the selected product attribute (size, xs, m, l, etc)
   handleChange(e) {
     this.setState({
       selectedAttribute: e.target.value
     });
     console.log(this.state)
   }
+
+  // Adds the sku to the users Cart. Also prevents user from adding the same sku.
   handleClick() {
-    // funky
     let sku = this.props.skus.find(sku => {
       if ((sku.product === this.props.product.id) && (sku.attributes.name === this.state.selectedAttribute)) {
         return sku;
@@ -228,7 +227,6 @@ class ProductDetails extends Component {
       itemSku: sku,
       skuProduct: this.props.product,
     }
-    // so far in this function we are checking to see if a sku exist, if so add if so dont add.
     if (this.props.items.length !== 0) {
       let inCartSkus = this.props.items.map((item, index) => {
         return item.itemSku.id;
@@ -245,6 +243,7 @@ class ProductDetails extends Component {
       console.log("added to cart");  
     }
   }
+
   render() {
     return (
       <React.Fragment>

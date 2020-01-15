@@ -1,13 +1,15 @@
 import React from 'react';
+// MATERIAL UI
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
-export default function AddressForm(props) {
-  
-
+/**
+  * @desc displays a form to collect shipping address information
+  * @param Object props - the current redux state, and redux actions
+  * @return a react Component
+*/
+const AddressForm = (props) => {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -16,9 +18,7 @@ export default function AddressForm(props) {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TextField
-            required
-            
-            
+            required                        
             value={props.shippingField.email}
             onChange={props.handleChange}                              
             id="email"
@@ -107,3 +107,5 @@ export default function AddressForm(props) {
     </React.Fragment>
   );
 }
+
+export default AddressForm;

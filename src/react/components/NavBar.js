@@ -11,16 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 
-function HideOnScroll(props) {
-  const { children, window } = props;
-  const trigger = useScrollTrigger({ target: window ? window() : undefined });
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
-
 const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
@@ -32,6 +22,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+/**
+  * @desc hides the navbar when the user scrolls down, shows navbar when the user scrolls up
+  * @param Object props - the html window, and the target child to be hidden
+  * @return a dynamically displayed Component
+*/
+const HideOnScroll = (props) => {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+// displays the app NavBar
 const NavBar = () => {
   const classes = useStyles();
   return (
@@ -55,6 +61,5 @@ const NavBar = () => {
     </React.Fragment>
   )
 }
-
 
 export default NavBar;

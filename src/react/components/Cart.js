@@ -5,22 +5,16 @@ import { NavLink } from 'react-router-dom';
 // MATERIAL UI
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
-import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
-import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Zoom from '@material-ui/core/Zoom';
-
-// TODO add remove from cart functionality 
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,16 +67,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
+/**
+  * @desc displays items added to the cart if any
+  * @param Object props - the items that have been added to the cart
+  * @return react component
+*/
 const Cart = (props) => {
   const classes = useStyles();
   const [state, setState] = useState();
   const [subtotal, setSubtotalState] = useState(0);
-
-  console.log(props)
-
+  
   useEffect(() => {
-    // reset subtotal
+    // calculates the current subtotal of the cart items 
     setSubtotalState(0);
     props.items.forEach(item => {
       setState({
@@ -93,6 +89,7 @@ const Cart = (props) => {
     });
   }, [props.items]); 
 
+  // tracks the selected quantities
   const handleChange = event => {
     let updatedItems = props.items.map(item => {
       if (item.itemSku.id === event.target.name) {
@@ -104,13 +101,11 @@ const Cart = (props) => {
     props.updateItemList(updatedItems);
   }
 
+  // removes the selected item from the cart
   const handleRemove = (key) => {
-    console.log('test')
-    console.log(key)
     let updatedItems = props.items.filter(item => 
       item.itemSku.id !== key 
     )
-    console.log(updatedItems)
     props.updateItemList(updatedItems);
   }
 

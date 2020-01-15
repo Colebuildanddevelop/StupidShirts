@@ -11,7 +11,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { NavLink } from 'react-router-dom';
 
-function Copyright() {
+const useStyles = makeStyles(theme => ({
+  footer: {
+    padding: theme.spacing(4),
+    maxWidth: 500,
+    margin: 'auto',
+  },
+  icon: {
+    width: '100%',
+  }
+}));
+
+const Copyright = () => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -24,20 +35,8 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
-  footer: {
-    padding: theme.spacing(4),
-    maxWidth: 500,
-    margin: 'auto',
-  },
-  icon: {
-    width: '100%',
-  }
-}));
-
 const Footer = () => {
   const classes = useStyles();
-
   return (
     <React.Fragment>
       {/* Footer */}

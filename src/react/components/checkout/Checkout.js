@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { updateShipping } from '../../../redux/actions';
 import { connect } from 'react-redux';
 import { injectStripe } from 'react-stripe-elements';
+// MATERIAL-UI
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
-import Review from './Review';
-import clsx from 'clsx';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { green } from '@material-ui/core/colors';
 import { grey } from '@material-ui/core/colors';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// COMPONENTS
+import Review from './Review';
+import AddressForm from './AddressForm';
+import PaymentForm from './PaymentForm';
 
 const useStyles = makeStyles(theme => ({
-
   paper: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
@@ -91,6 +74,11 @@ const useStyles = makeStyles(theme => ({
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
+/**
+  * @desc displays a form to collect shipping address information
+  * @param Object props - the current redux state, and redux actions
+  * @return a react Component
+*/
 const Checkout = (props) => {   
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
@@ -99,7 +87,6 @@ const Checkout = (props) => {
   const [paymentPromise, setPaymentPromise] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
 
   const handleLoading = () => {
     if (!loading) {
@@ -110,6 +97,7 @@ const Checkout = (props) => {
       setSuccess(true);
     }
   };
+
   const changeLoading = (bool) => {
     if (bool) {
       setLoading(true);
@@ -119,6 +107,7 @@ const Checkout = (props) => {
       setSuccess(true);
     }
   } 
+
   const createSkuList = () => {
     const skuList = props.items.map((item) => {
       return {
@@ -182,7 +171,6 @@ const Checkout = (props) => {
           }); 
           handleNext(); 
         }
-
         break;
       }
       case 1: {
@@ -212,7 +200,6 @@ const Checkout = (props) => {
         .then(data => {
           setPaymentPromise(data)
         }); 
-        
         handleNext(); 
         handleLoading();
         console.log(paymentPromise);          
@@ -221,9 +208,7 @@ const Checkout = (props) => {
       default: {
         break;
       }   
-  
     }  
-    
   };
   
   const handleChange = (event) => {
@@ -236,11 +221,7 @@ const Checkout = (props) => {
         updatedObj[keyArr[i]] = props.shippingField[keyArr[i]];
       }  
     }
-    console.log(updatedObj)
     props.updateShipping(updatedObj)
-    console.log(props)
-    console.log(stripeToken)
-    console.log(orderData)
   }
     
   return (
@@ -305,27 +286,21 @@ const Checkout = (props) => {
                 </Button>
               )}
               <Button
-                variant="contained"
-                
+                variant="contained"                
                 onClick={handleClick}
                 className={classes.button}
                 disabled={loading}
               >
                 {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
               </Button>
-
-
             </div>
           </React.Fragment>
         )}
       </React.Fragment>
       </Paper>
-
     </React.Fragment>                 
   );
 };
-
-
 
 export default connect(
   null, 

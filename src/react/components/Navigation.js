@@ -24,6 +24,11 @@ const styles = theme => ({
   },
 });
 
+/**
+  * @desc main app component, fetches all the data from the api and passes to child components
+  * @param Object props - redux actions, and store data 
+  * @return the complete app
+*/
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +46,6 @@ class Navigation extends Component {
 
   render() {
     const { classes } = this.props;
-
     if (this.props.isLoading === true) {
       return <Loading/>
     } else {

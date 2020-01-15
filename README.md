@@ -1,5 +1,7 @@
 # Stupid Shirts
 
+## https://stupid-shirts.firebaseapp.com/
+
 > An ecommerce web application
 
 > Using Google Cloud Functions in tangent with Stripe Api to accomplish a custom checkout experience
@@ -16,19 +18,19 @@
 
 ## Features
 
-**Main Flow**
+> Main Flow
 
 ![Main](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/addingItems.gif)
 
-**Custom Checkout Flow**
+> Custom Checkout Flow
 
 ![CHECKOUT GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/checkout.gif)
 
-**Responsive Design**
+> Responsive Design
 
 ![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/responsive.gif)
 
-**Realtime Updates**
+> Realtime Updates
 
 ![REALTIME UPDATES GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/realtimeUpdates.gif)
 
@@ -40,7 +42,7 @@
 
 ## Support
 
-Reach out to me for anything! 
+Reach out to me or check out my other work!
 
 - Email: colebuildanddevelop@gmail.com
 
