@@ -1,7 +1,5 @@
 # Stupid Shirts
 
-## https://stupid-shirts.firebaseapp.com/
-
 > An ecommerce web application
 
 > Using Google Cloud Functions in tangent with Stripe Api to accomplish a custom checkout experience
@@ -20,22 +18,31 @@
 
 **Main Flow**
 
-![Main](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/addingItems.gif)
+![Main](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/addingItems.gif)
 
 **Custom Checkout Flow**
 
-![CHECKOUT GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/checkout.gif)
+![CHECKOUT GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/checkout.gif)
 
 **Responsive Design**
 
-![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/responsive.gif)
+![RESPONSIVE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/responsive.gif)
 
 **Realtime Updates**
 
-![REALTIME UPDATES GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/static/realtimeUpdates.gif)
+![REALTIME UPDATES GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/realtimeUpdates.gif)
 
 ---
 
-## Usage with Stripe
+## Usage with Stripe 
 
+![STRIPE GIF](https://github.com/Colebuildanddevelop/StupidShirts/blob/master/src/constants/stripe.gif)
+
+## Support
+
+Reach out to me for anything! 
+
+- Email: colebuildanddevelop@gmail.com
+
+- Website: <a href="https://portfolio-5e35d.firebaseapp.com/" target="_blank">`RecentWorks`</a>
 
