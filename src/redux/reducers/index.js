@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
+// COMPONENTS
 import cart from './cart';
 import product from './product';
 import shipping from './shipping';

@@ -1,7 +1,9 @@
 import React from 'react';
 import {Elements, StripeProvider} from 'react-stripe-elements';
+// COMPONENTS
 import Checkout from './Checkout';
 
+// higher order component, injects the stripe api, for a custom pci compliant checkout
 const MyStoreCheckout = (props) => {
   return (
     <div>
@@ -10,8 +12,7 @@ const MyStoreCheckout = (props) => {
           <Elements>
             <Checkout
               items={props.items}
-              shippingField={props.shippingField}
-            
+              shippingField={props.shippingField}            
             />
           </Elements>
         </div>

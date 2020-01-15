@@ -1,4 +1,5 @@
 import React from 'react';
+// MATERIAL-UI
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -33,7 +34,8 @@ const useStyles = makeStyles(theme => ({
   },  
 }));
 
-export default function Review(props) {
+// displays all the data gathered throughout the checkout process
+const Review = (props) => {
   const classes = useStyles();
   const addresses = [props.shippingField.address1, props.shippingField.city, props.shippingField.state, props.shippingField.zip, props.shippingField.country];
   let payments = [];
@@ -47,8 +49,6 @@ export default function Review(props) {
       { name: 'Expiry date', detail: `${props.stripeToken.card.exp_month}/${props.stripeToken.card.exp_year}` },
     ];  
   }
-
-  
 
   return (
     <React.Fragment>
@@ -119,3 +119,5 @@ export default function Review(props) {
     </React.Fragment>
   );
 }
+
+export default Review;

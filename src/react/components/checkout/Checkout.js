@@ -75,7 +75,7 @@ const useStyles = makeStyles(theme => ({
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 /**
-  * @desc displays a form to collect shipping address information
+  * @desc a HOC for the Checkout process, displays the current step and allows actions respectively
   * @param Object props - the current redux state, and redux actions
   * @return a react Component
 */
@@ -87,7 +87,8 @@ const Checkout = (props) => {
   const [paymentPromise, setPaymentPromise] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
+  
+  // tracks the lifecyle of the api calls
   const handleLoading = () => {
     if (!loading) {
       setSuccess(false);
@@ -98,6 +99,7 @@ const Checkout = (props) => {
     }
   };
 
+  // will be called when the stripe payment form is loaded
   const changeLoading = (bool) => {
     if (bool) {
       setLoading(true);
@@ -107,7 +109,8 @@ const Checkout = (props) => {
       setSuccess(true);
     }
   } 
-
+  
+  // format a skulist to provide to the stripe order endpoint
   const createSkuList = () => {
     const skuList = props.items.map((item) => {
       return {
@@ -119,6 +122,7 @@ const Checkout = (props) => {
     return skuList
   }
 
+  // check to make sure no fields are left empty
   const checkFields = () => {
     let fields = Object.keys(props.shippingField)
     for (let i=0; i<fields.length; i++) {
@@ -129,6 +133,7 @@ const Checkout = (props) => {
     return false;
   }
 
+  // controls to progress through the checkout process
   const handleNext = () => {
     setActiveStep(activeStep + 1 );
   }
@@ -136,6 +141,7 @@ const Checkout = (props) => {
     setActiveStep(activeStep - 1);
   };
 
+  // takes the appropriate action given the state of the checkout
   const handleClick = async() => {
     switch (activeStep) {
       case 0: {
@@ -211,6 +217,7 @@ const Checkout = (props) => {
     }  
   };
   
+  // handle changes to the address form, and save to redux store 
   const handleChange = (event) => {
     let updatedObj = {}
     let keyArr = Object.keys(props.shippingField)  

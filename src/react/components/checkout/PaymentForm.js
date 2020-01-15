@@ -27,13 +27,12 @@ const createOptions = (padding) => {
   };
 };
 
-export default function PaymentForm(props) {
-
+// PCI compliant payment form, using react-stripe-elements
+const PaymentForm = (props) => {
   const handleReady = () => {
     props.changeLoading(false)
     console.log('[ready]');
   };
-
   return (    
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -77,3 +76,5 @@ export default function PaymentForm(props) {
     </React.Fragment> 
   );
 };
+
+export default PaymentForm;

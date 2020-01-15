@@ -1,6 +1,6 @@
 # Stupid Shirts
 
-## https://stupid-shirts.firebaseapp.com/
+**https://stupid-shirts.firebaseapp.com/**
 
 > An ecommerce web application
 

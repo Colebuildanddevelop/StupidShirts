@@ -3,7 +3,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
 /**
   * @desc displays a form to collect shipping address information
   * @param Object props - the current redux state, and redux actions
